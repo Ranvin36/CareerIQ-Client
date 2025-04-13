@@ -189,7 +189,7 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   transform: scale(1.01);
-  box-shadow: 0 4px 30px rgba(48, 38, 194, 0.322);
+  box-shadow: 0 4px 30px rgba(45, 37, 155, 0.267);
   transition: 0.5s all ease-in-out;
 }
 
@@ -227,6 +227,9 @@
   font-weight: 400;
   color: #d1cccc;
   text-align: center;
+  background: -webkit-linear-gradient(#39393f,#d1c8c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .quoteText p{
@@ -235,4 +238,144 @@
   color: #d1cccc;
   text-align: center;
   margin-top: 20px;
+}
+
+/* Pricing-plans Stylings */
+
+
+.pricingContentText h1{
+  text-align: center;
+  font-weight: 300;
+}
+
+.pricingCards{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.pricingCard{
+  width: 400px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 30px 40px;
+  margin: 0px 5px;
+}
+
+.pricingCard h1{
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.priceText{
+  margin: 20px 0;
+}
+
+.priceText h3{
+  font-weight: 300;
+  font-size: 35px;
+}
+
+.purchaseBtn{
+  background-color: #fff;
+  padding: 13px 20px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.purchaseBtn a{
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+}
+
+.target{
+  margin: 20px 0;
+}
+
+.target h3{
+  font-weight: 500;
+}
+
+.targetItem{
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.targetItem p{
+  font-weight: 300;
+  
+}
+
+
+/* Footer Stylings */
+
+.footer{
+  margin: 7% 0 0 0;
+  background-color: #252525;
+  padding: 70px 7%;
+  border-radius: 50px 50px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+.footerContent{
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerContentText{
+  max-width: 400px;
+}
+
+.footerContentText h1{
+  font-weight: 600;
+}
+
+.footerContentText p{
+  font-weight: 300;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.footerContentLinks{
+  display: flex;
+}
+
+.footerContentLinksItem{
+  margin-left: 70px;
+}
+
+.footerContentLinksItem li{
+  list-style: none;
+}
+
+.footerContentLinksItem li a{
+  color: #fff;
+}
+
+.footerContentLinksItem h3{
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.footerContentLinksItem ul{
+  max-width: 300px;
+  margin-top: 5px;
+}
+
+.footerContentLinksItem ul p{
+  color: #dbd7d7;
+}
+
+.footerContentLinksItem ul li{
+  margin-top: 5px;
 }

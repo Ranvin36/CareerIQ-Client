@@ -1,0 +1,49 @@
+{
+  "plans": [
+    {
+      "name": "Starter",
+      "price": "$0",
+      "description": "Perfect for individuals starting their career journey",
+      "features": [
+        "Basic resume analysis",
+        "Up to 3 resume optimizations per month",
+        "Standard job matching",
+        "Email support",
+        "Basic career insights"
+      ],
+      "buttonText": "Get Started",
+      "popular": false
+    },
+    {
+      "name": "Professional",
+      "price": "$19.99",
+      "description": "Ideal for professionals looking to advance their careers",
+      "features": [
+        "Advanced resume analysis",
+        "Unlimited resume optimizations",
+        "Priority job matching",
+        "24/7 email & chat support",
+        "Advanced career insights",
+        "Interview preparation tips",
+        "LinkedIn profile optimization"
+      ],
+      "buttonText": "Start Free Trial",
+      "popular": true
+    },
+    {
+      "name": "Enterprise",
+      "price": "$49.99",
+      "description": "Specialized for organizations and career coaches",
+      "features": [
+        "All Professional features",
+        "Team collaboration tools",
+        "Custom integrations",
+        "Dedicated account manager",
+        "Bulk resume processing",
+        "Custom training sessions"
+      ],
+      "buttonText": "Contact Sales",
+      "popular": false
+    }
+  ]
+} 
