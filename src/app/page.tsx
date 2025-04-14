@@ -1,48 +1,17 @@
-"use client"
-
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
-import { useState } from "react";
 import styles from "./page.module.css";
 import Card from "./components/card";
 import features from "./dummyData/features"
 import PricingCard from "./components/pricingCard";
 import pricingPlans from "./dummyData/pricingPlans.json";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <div className={`${styles.navbar} ${isMenuOpen ? styles.active : ''}`}>
-          <div className={styles.logo}>
-            <h1>CareerIQ.</h1>
-          </div>
-          <div className={styles.menuToggle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Features</a></li>
-            <li><a href="">Pricing</a></li>
-            <li><a href="">Docs</a></li>
-          </ul>
-          <div className={styles.buttons}>
-            <div className={styles.button}>
-              <div className={styles.bgBtn} style={{backgroundColor:"transparent"}}>
-                <a href="">Login</a>
-              </div>
-            </div>
-            <div className={styles.button}>
-              <div className={styles.bgBtn}>
-                <a href="">Sign Up</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Navbar/>
         <div className={styles.headerContent}>
             <div className={styles.headerContentText}>
               <div>

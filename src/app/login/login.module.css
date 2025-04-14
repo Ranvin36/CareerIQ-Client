@@ -1,0 +1,132 @@
+.loginLayout{
+    display: flex;
+    align-items: center;
+}
+
+.leftFlex, .rightFlex{
+    width: 50%;
+    height: 100vh;
+}
+
+.leftFlex{
+   background-image: linear-gradient(rgba(0, 0, 0, 0.151), rgba(0, 0, 0, 0.521)),url("/images/loginBg.jpg");
+   background-position: center;
+   background-size: cover;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.leftFlex h1{
+    font-weight: 300;
+    font-size: 40px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.leftFlex h2{
+    margin-top: 30px;
+    font-weight: 800;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.rightFlex{
+    padding: 10% 5%;
+}
+
+.inputContent{
+    max-width: 570px;
+}
+
+.loginHeader{
+    display: flex;
+    align-items: center;
+}
+
+.loginHeader h1{
+    font-weight: 300;
+}
+
+.backArrow{
+    width: 40px;
+    height: 40px;
+    background-color: #242121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tagLine{
+    margin-top: 20px;
+}
+
+.tagLine p{
+    font-weight: 400;
+    font-size: 14px;
+    color: #9b9999;
+}
+
+.inputs{
+    margin: 30px 0;
+}
+
+.inputContainer h3{
+    font-weight: 500;
+}
+
+.inputField{
+    background-color:#242121;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.inputField input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font-poppins-sans);
+    padding: 17px 20px;
+    width: 100%;
+}
+
+.forgotPassword{
+    margin: 15px 0;
+}
+
+.forgotPassword a{
+    font-weight: 500;
+    font-size: 15px;
+    color: #818181;
+}
+
+.arrowBg{
+    background: linear-gradient(90deg,rgba(255, 195, 43, 1) 0%, rgba(196, 77, 77, 1) 50%, rgba(235, 96, 96, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+}
+
+.btnBg{
+    background: linear-gradient(90deg,rgba(255, 195, 43, 1) 0%, rgba(196, 77, 77, 1) 50%, rgba(235, 96, 96, 1) 100%);
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.loginBtn{
+    background-color: #333333;
+    text-align: center;
+    padding: 18px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.loginBtn a{
+    text-decoration: none;
+    color: #fff;
+}
