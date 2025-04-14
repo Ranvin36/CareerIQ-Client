@@ -1,5 +1,4 @@
 "use client"
-
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import { useState } from "react";
