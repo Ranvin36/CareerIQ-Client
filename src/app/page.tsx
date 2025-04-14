@@ -1,3 +1,4 @@
+"use client"
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import styles from "./page.module.css";
