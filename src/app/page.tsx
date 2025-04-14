@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import styles from "./page.module.css";
 import Card from "./components/card";
