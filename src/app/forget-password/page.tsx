@@ -10,16 +10,13 @@ import axios from "axios"
 const Page = () => {
         const router = useRouter()
         const [email,setEmail] = useState("")
-        const [password,setPassword] = useState("")
-        const [name,setName] = useState("")
 
-        const handleLogin = async() => {
-            if(name.length > 0 && email.length > 0 && password.length > 0){
+        const handleResetPassword = async() => {
+            if(email.length > 0){
                 try{
-                    const data = {email,password,name}
-                    const response = await axios.post("http://localhost:5100/api/user/register",data)
-                    console.log(response.data)
-                    router.push("/login");
+                    const data = {email}
+                    const response = await axios.post("http://localhost:5100/api/user/forget-password",data)
+                    console.log(response.data)                
                 }
                 catch(error){
                     console.log(error)
@@ -44,28 +41,19 @@ const Page = () => {
                                 <IoArrowBackOutline size={20}/>
                             </div>
                         </div>
-                        <h1>Unlock More - Register!</h1>
+                        <h1>Forgot Your Password?</h1>
                     </div>
                     <div className={styles.tagLine}>
-                        <p>Join our community and discover everything we have to offer. Registering is simple and takes just a moment.</p>
+                        <p>Enter your email address below and we'll send you a link to reset your password.</p>
                     </div>
                     <div className={styles.inputs}>
                         <div>
-                            <InputField setInput={setName} label="Full Name"/>
-                        </div>
-                        <div>
                             <InputField setInput={setEmail} label="Email Address" email={true}/>
-                        </div>
-                        <div>
-                            <InputField setInput={setPassword} label="Password" password={true}/>
-                        </div>
-                        <div className={styles.forgotPassword}>
-                            <a href="/login">Already Have An Account?</a>
                         </div>
                     </div>
                     <div className={styles.btnBg}>
-                        <div className={styles.loginBtn}>
-                            <a href="">Sign Up Now</a>
+                        <div className={styles.loginBtn} onClick={handleResetPassword}> 
+                            <a href="#">Send Email</a>
                         </div>
                     </div>
 

@@ -130,3 +130,29 @@
     text-decoration: none;
     color: #fff;
 }
+
+@media screen  and (max-width:780px){
+    .leftFlex{
+        display: none
+    }
+    .rightFlex{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .inputContent h1{
+        font-size: 20px;
+    }
+    .tagLine p{
+        font-size: 13px;
+    }
+    .backArrow{
+        width: 28px;
+        height: 28px;
+    }
+    .arrowBg{
+        width: 30px;
+        height: 30px;
+    }
+}

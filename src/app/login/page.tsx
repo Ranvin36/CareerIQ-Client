@@ -6,11 +6,25 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import InputField from "../components/InputField";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import axios from "axios";
 
 const Page:React.FC = () => {
     const router = useRouter()
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+
+    const handleLogin = async() => {
+        if(email.length > 0 && password.length > 0){
+            try{
+                const data = {email,password}
+                const response = await axios.post("http://localhost:5100/api/user/login",data)
+                console.log(response.data)
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+    }
 
     return(
         <div className={styles.login}>
@@ -36,18 +50,18 @@ const Page:React.FC = () => {
                         </div>
                         <div className={styles.inputs}>
                             <div>
-                                <InputField setEmail={setEmail} label="Email Address"/>
+                                <InputField setInput={setEmail} label="Email Address" email={true}/>
                             </div>
                             <div>
-                                <InputField setEmail={setPassword} label="Password"/>
+                                <InputField setInput={setPassword} label="Password" password={true}/>
                             </div>
                             <div className={styles.forgotPassword}>
-                                <a href="">Forgot Password?</a>
+                                <Link href="/forget-password">Forgot Password?</Link>
                             </div>
                         </div>
                         <div className={styles.btnBg}>
-                            <div className={styles.loginBtn}>
-                                <a href="">Login Now</a>
+                            <div className={styles.loginBtn} onClick={handleLogin}>
+                                <a href="#">Login Now</a>
                             </div>
                         </div>
                         <div style={{textAlign:"center",marginTop:"10%"}}>
