@@ -82,6 +82,16 @@
     border-radius: 5px;
 }
 
+.error{
+    border: 1px solid saddlebrown;
+}
+
+.errorMessage{
+    color: rgb(252, 165, 165);
+    font-size: 12px;
+    margin: 10px 0;
+}
+
 .inputField input{
     background-color: transparent;
     border: none;

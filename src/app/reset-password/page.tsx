@@ -6,6 +6,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import InputField from "@/app/components/InputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 interface pageProps {
     params:{
         token:[],
@@ -27,6 +28,10 @@ const Page = ({params}:pageProps) => {
                 const data = {"token":token,"password":confirmpassword,"email":email}
                 try{
                     const response = await axios.post("http://localhost:5100/api/user/reset-password",data)
+                    toast.success("Password Reset Successfully 🖐")
+                    setTimeout(() => {
+                        router.push("/login")
+                    },2000)
                     console.log(response.data)
                     router.push("/login")
                 }
@@ -43,10 +48,9 @@ const Page = ({params}:pageProps) => {
             setToken(decodeURIComponent(token))
         }
     },[])
-
-    console.log("Decoded token:", decodeURIComponent(searchParams.get("token") || ""));
     return(
         <div className={styles.login}>
+        <ToastContainer position="bottom-right" theme="dark" newestOnTop={true}/>
         <div className={styles.loginLayout}>
             <div className={styles.leftFlex}>
                 <div style={{maxWidth:800}}>

@@ -6,26 +6,31 @@ import { useRouter } from "next/navigation"
 import InputField from "../components/InputField"
 import { IoArrowBackOutline } from "react-icons/io5";
 import axios from "axios"
-
+import { toast, ToastContainer } from "react-toastify"
 const Page = () => {
         const router = useRouter()
         const [email,setEmail] = useState("")
+        const [error,setError] = useState(0)
+        const [errorMessage,setErrorMessage] = useState("")
 
-        const handleResetPassword = async() => {
+        const handleForgetPassword = async() => {
             if(email.length > 0){
                 try{
                     const data = {email}
                     const response = await axios.post("http://localhost:5100/api/user/forget-password",data)
-                    console.log(response.data)                
+                    console.log(response.data)           
+                    toast.success("Password Reset Link Email Sent 👉")     
                 }
-                catch(error){
-                    console.log(error)
+                catch(error:any){
+                    setError(error?.response?.status)
+                    setErrorMessage(error?.response?.data?.message)
                 }
             }
         }
 
     return(
         <div className={styles.login}>
+        <ToastContainer position="bottom-right" theme="dark" newestOnTop={true}/>
         <div className={styles.loginLayout}>
             <div className={styles.leftFlex}>
                 <div style={{maxWidth:800}}>
@@ -48,11 +53,11 @@ const Page = () => {
                     </div>
                     <div className={styles.inputs}>
                         <div>
-                            <InputField setInput={setEmail} label="Email Address" email={true}/>
+                            <InputField setInput={setEmail} label="Email Address" email={true} errorCode={error == 400} errorMessage={errorMessage}/>
                         </div>
                     </div>
                     <div className={styles.btnBg}>
-                        <div className={styles.loginBtn} onClick={handleResetPassword}> 
+                        <div className={styles.loginBtn} onClick={handleForgetPassword}> 
                             <a href="#">Send Email</a>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ const Navbar = () =>{
           </div>
           <div className={styles.button}>
             <div className={styles.bgBtn}>
-              <a href="">Sign Up</a>
+              <Link href="/register">Sign Up</Link>
             </div>
           </div>
         </div>

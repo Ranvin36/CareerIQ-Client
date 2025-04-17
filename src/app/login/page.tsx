@@ -1,17 +1,22 @@
 "use client"
 
 import { useState } from "react";
-import styles from "./login.module.css";
+import { Slide, ToastContainer, toast } from 'react-toastify';
 import { IoArrowBackOutline } from "react-icons/io5";
-import InputField from "../components/InputField";
 import { useRouter } from "next/navigation";
+
+import styles from "./login.module.css";
+import InputField from "../components/InputField";
 import Link from "next/link";
 import axios from "axios";
+
 
 const Page:React.FC = () => {
     const router = useRouter()
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const [error,setError] = useState(0)
+    const [errorMessage,setErrorMessage] = useState("")
 
     const handleLogin = async() => {
         if(email.length > 0 && password.length > 0){
@@ -19,15 +24,18 @@ const Page:React.FC = () => {
                 const data = {email,password}
                 const response = await axios.post("http://localhost:5100/api/user/login",data)
                 console.log(response.data)
+                toast.success("Login Successfully")
             }
-            catch(error){
-                console.log(error)
+            catch(error:any){
+                setError(error?.response?.status)
+                setErrorMessage(error?.response?.data?.message)
             }
         }
     }
 
     return(
         <div className={styles.login}>
+            <ToastContainer position="bottom-right" theme="colored" newestOnTop={true}/>
             <div className={styles.loginLayout}>
                 <div className={styles.leftFlex}>
                     <div style={{maxWidth:800}}>
@@ -50,7 +58,7 @@ const Page:React.FC = () => {
                         </div>
                         <div className={styles.inputs}>
                             <div>
-                                <InputField setInput={setEmail} label="Email Address" email={true}/>
+                                <InputField setInput={setEmail} label="Email Address" email={true} errorCode={error == 401} errorMessage={errorMessage}/>
                             </div>
                             <div>
                                 <InputField setInput={setPassword} label="Password" password={true}/>
