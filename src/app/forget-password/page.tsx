@@ -20,6 +20,9 @@ const Page = () => {
                     const response = await axios.post("http://localhost:5100/api/user/forget-password",data)
                     console.log(response.data)           
                     toast.success("Password Reset Link Email Sent 👉")     
+                    setError(0)
+                    setErrorMessage("")
+                    setEmail("")
                 }
                 catch(error:any){
                     setError(error?.response?.status)

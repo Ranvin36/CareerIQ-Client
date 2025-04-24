@@ -19,6 +19,8 @@ const Page = ({params}:pageProps) => {
     const [token,setToken]  = useState("")
     const [newPassword,setnewPassword]  = useState("")
     const [confirmpassword,setConfirmPassword]  = useState("")
+    const [error,setError] = useState(0)
+    const [errorMessage,setErrorMessage] = useState("")
     const searchParams = useSearchParams();
     const email = searchParams.get("email");
 
@@ -38,6 +40,10 @@ const Page = ({params}:pageProps) => {
                 catch(error){
                     console.log(error)
                 }
+            }
+            else{
+                setError(400)
+                setErrorMessage("Password and Confirm Password do not match")
             }
         }
 
@@ -68,10 +74,10 @@ const Page = ({params}:pageProps) => {
                     </div>
                     <div className={styles.inputs}>
                         <div>
-                            <InputField setInput={setnewPassword} label="New Password" password={true}/>
+                            <InputField setInput={setnewPassword} label="New Password" password={true}  errorCode={error == 400}/>
                         </div>
                         <div>
-                            <InputField setInput={setConfirmPassword} label="Confirm Password" password={true}/>
+                            <InputField setInput={setConfirmPassword} label="Confirm Password" password={true} errorCode={error == 400} errorMessage={errorMessage}/>
                         </div>
                     </div>
                     <div className={styles.btnBg}>
