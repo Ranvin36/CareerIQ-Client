@@ -6,6 +6,7 @@ import InputField from "../components/InputField";
 import { useRouter, useSearchParams } from "next/navigation";
 import StarterHeader from "../components/starterHeader";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 interface pageProps {
     params:{
@@ -19,6 +20,8 @@ const Page = ({params}:pageProps) => {
     const [token,setToken]  = useState("")
     const [newPassword,setnewPassword]  = useState("")
     const [confirmpassword,setConfirmPassword]  = useState("")
+    const [error,setError] = useState(0)
+    const [errorMessage,setErrorMessage] = useState("")
     const searchParams = useSearchParams();
     const email = searchParams.get("email");
 
@@ -28,12 +31,20 @@ const Page = ({params}:pageProps) => {
                 const data = {"token":token,"password":confirmpassword,"email":email}
                 try{
                     const response = await axios.post("http://localhost:5100/api/user/reset-password",data)
+                    toast.success("Password Reset Successfully 🖐")
+                    setTimeout(() => {
+                        router.push("/login")
+                    },2000)
                     console.log(response.data)
                     router.push("/login")
                 }
                 catch(error){
                     console.log(error)
                 }
+            }
+            else{
+                setError(400)
+                setErrorMessage("Password and Confirm Password do not match")
             }
         }
 
@@ -44,31 +55,30 @@ const Page = ({params}:pageProps) => {
             setToken(decodeURIComponent(token))
         }
     },[])
-
-    console.log("Decoded token:", decodeURIComponent(searchParams.get("token") || "") + " " + email);
     return(
         <div className={styles.login}>
-            <div className={styles.loginLayout}>
-                <div className={styles.leftFlex}>
-                    <div style={{maxWidth:800}}>
-                        <h1>A few clicks away from achieving your dream job.</h1>
-                        <h2>CareerIQ.</h2>
-                    </div>
+        <ToastContainer position="bottom-right" theme="dark" newestOnTop={true}/>
+        <div className={styles.loginLayout}>
+            <div className={styles.leftFlex}>
+                <div style={{maxWidth:800}}>
+                    <h1>A few clicks away from achieving your dream job.</h1>
+                    <h2>CareerIQ.</h2>
                 </div>
-                <div className={styles.rightFlex}>
-                    <div className={styles.inputContent}>
-                        <StarterHeader 
-                            heading="Reset Your Password"
-                            subtitle="Enter your new password below to reset your account."
-                            showBackButton={false}
-                        />
-                        <div className={styles.inputs}>
-                            <div>
-                                <InputField setInput={setnewPassword} label="New Password" password={true}/>
-                            </div>
-                            <div>
-                                <InputField setInput={setConfirmPassword} label="Confirm Password" password={true}/>
-                            </div>
+            </div>
+            <div className={styles.rightFlex}>
+                <div className={styles.inputContent}>
+                    <div className={styles.loginHeader}>
+                        <h1>Forgot Your Password?</h1>
+                    </div>
+                    <div className={styles.tagLine}>
+                        <p>Enter your email address below and we'll send you a link to reset your password.</p>
+                    </div>
+                    <div className={styles.inputs}>
+                        <div>
+                            <InputField setInput={setnewPassword} label="New Password" password={true}  errorCode={error == 400}/>
+                        </div>
+                        <div>
+                            <InputField setInput={setConfirmPassword} label="Confirm Password" password={true} errorCode={error == 400} errorMessage={errorMessage}/>
                         </div>
                         <div className={styles.btnBg}>
                             <div className={styles.loginBtn} onClick={handleResetPassword}> 
