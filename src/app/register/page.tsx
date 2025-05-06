@@ -1,14 +1,14 @@
 "use client"
 
-import styles from "../login/login.module.css"
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import InputField from "../components/InputField"
-import { IoArrowBackOutline } from "react-icons/io5";
+import { useState } from "react";
+import styles from "../login/login.module.css";
+import InputField from "../components/InputField";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import StarterHeader from "../components/starterHeader";
 import axios from "axios"
 import Link from "next/link"
 import { toast, ToastContainer } from "react-toastify"
-
 const Page = () => {
         const router = useRouter()
         const [email,setEmail] = useState("")
@@ -34,22 +34,34 @@ const Page = () => {
                 }
             }
         }
+
     return(
         <div className={styles.login}>
-        <ToastContainer position="bottom-right" theme="colored" newestOnTop={true}/>
-        <div className={styles.loginLayout}>
-            <div className={styles.leftFlex}>
-                <div style={{maxWidth:800}}>
-                    <h1>A few clicks away from achieving your dream job.</h1>
-                    <h2>CareerIQ.</h2>
+            <div className={styles.loginLayout}>
+                <div className={styles.leftFlex}>
+                    <div style={{maxWidth:800}}>
+                        <h1>A few clicks away from achieving your dream job.</h1>
+                        <h2>CareerIQ.</h2>
+                    </div>
                 </div>
-            </div>
-            <div className={styles.rightFlex}>
-                <div className={styles.inputContent}>
-                    <div className={styles.loginHeader}>
-                        <div className={styles.arrowBg} onClick={()  => router.back()}>
-                            <div className={styles.backArrow}>  
-                                <IoArrowBackOutline size={20}/>
+                <div className={styles.rightFlex}>
+                    <div className={styles.inputContent}>
+                        <StarterHeader 
+                            heading="Unlock More - Register!"
+                            subtitle="Join our community and discover everything we have to offer. Registering is simple and takes just a moment."
+                        />
+                        <div className={styles.inputs}>
+                            <div>
+                                <InputField setInput={setName} label="Full Name"/>
+                            </div>
+                            <div>
+                                <InputField setInput={setEmail} label="Email Address" email={true}/>
+                            </div>
+                            <div>
+                                <InputField setInput={setPassword} label="Password" password={true}/>
+                            </div>
+                            <div className={styles.forgotPassword}>
+                                <a href="/login">Already Have An Account?</a>
                             </div>
                         </div>
                         <h1>Unlock More - Register!</h1>
@@ -74,14 +86,10 @@ const Page = () => {
                     <div className={styles.btnBg}>
                         <div className={styles.loginBtn} onClick={handleRegister}>
                             <a href="#">Sign Up Now</a>
-                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
-
     )
 }
 

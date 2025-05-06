@@ -1,12 +1,13 @@
 "use client"
 
-import { useRouter, useSearchParams } from "next/navigation";
-import styles from "../login/login.module.css";
-import { IoArrowBackOutline } from "react-icons/io5";
-import InputField from "@/app/components/InputField";
 import { useEffect, useState } from "react";
+import styles from "../login/login.module.css";
+import InputField from "../components/InputField";
+import { useRouter, useSearchParams } from "next/navigation";
+import StarterHeader from "../components/starterHeader";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+
 interface pageProps {
     params:{
         token:[],
@@ -79,20 +80,17 @@ const Page = ({params}:pageProps) => {
                         <div>
                             <InputField setInput={setConfirmPassword} label="Confirm Password" password={true} errorCode={error == 400} errorMessage={errorMessage}/>
                         </div>
-                    </div>
-                    <div className={styles.btnBg}>
-                        <div className={styles.loginBtn} onClick={handleResetPassword}> 
-                            <a href="#">Reset Password</a>
+                        <div className={styles.btnBg}>
+                            <div className={styles.loginBtn} onClick={handleResetPassword}> 
+                                <a href="#">Reset Password</a>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
-
     )
 }
 
-export default Page;
+export default Page
 

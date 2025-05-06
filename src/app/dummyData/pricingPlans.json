@@ -16,7 +16,7 @@
     },
     {
       "name": "Professional",
-      "price": "$19.99",
+      "price": "$19",
       "description": "Ideal for professionals looking to advance their careers",
       "features": [
         "Advanced resume analysis",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Enterprise",
-      "price": "$49.99",
+      "price": "$49",
       "description": "Specialized for organizations and career coaches",
       "features": [
         "All Professional features",

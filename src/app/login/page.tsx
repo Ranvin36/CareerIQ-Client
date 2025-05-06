@@ -3,12 +3,15 @@
 import { useState } from "react";
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { IoArrowBackOutline } from "react-icons/io5";
+import styles from "./login.module.css";
+import InputField from "../components/InputField";
 import { useRouter } from "next/navigation";
 
 import styles from "./login.module.css";
 import InputField from "../components/InputField";
 import Link from "next/link";
 import axios from "axios";
+import StarterHeader from "../components/starterHeader";
 
 
 const Page:React.FC = () => {
@@ -45,17 +48,10 @@ const Page:React.FC = () => {
                 </div>
                 <div className={styles.rightFlex}>
                     <div className={styles.inputContent}>
-                        <div className={styles.loginHeader}>
-                            <div className={styles.arrowBg} onClick={()  => router.back()}>
-                                <div className={styles.backArrow}>  
-                                    <IoArrowBackOutline size={20}/>
-                                </div>
-                            </div>
-                            <h1>Welcome Back! Glad To See You</h1>
-                        </div>
-                        <div className={styles.tagLine}>
-                            <p>Ready to dive in? Log in with your credentials to access your personalized account experience.</p>
-                        </div>
+                        <StarterHeader 
+                            heading="Welcome Back! Glad To See You"
+                            subtitle="Ready to dive in? Log in with your credentials to access your personalized account experience."
+                        />
                         <div className={styles.inputs}>
                             <div>
                                 <InputField setInput={setEmail} label="Email Address" email={true} errorCode={error == 401} errorMessage={errorMessage}/>

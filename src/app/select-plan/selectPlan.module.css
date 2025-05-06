@@ -1,0 +1,56 @@
+.selectPlanPage{
+    margin-top: -70px;
+}
+
+.selectPlan{
+    display: flex;
+    align-items: center;
+    margin: 25px 0px;
+    /* flex-wrap: wrap;
+    width: 100%; */
+}
+
+.planBg{
+    background: linear-gradient(90deg,rgba(255, 195, 43, 1) 0%, rgba(196, 77, 77, 1) 50%, rgba(235, 96, 96, 1) 100%);
+    border-radius: 10px;
+    margin-right: 7px;
+}
+
+.plan{
+    background-color: #222222;
+    width: 190px;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #333333;
+    margin: 1px;
+    cursor: pointer;
+}   
+
+.planDescription{
+    margin-top: 10px;
+}
+
+.planDescription p{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.btnBg{
+    background: linear-gradient(90deg,rgba(255, 195, 43, 1) 0%, rgba(196, 77, 77, 1) 50%, rgba(235, 96, 96, 1) 100%);
+    padding: 2px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.loginBtn{
+    background-color: #333333;
+    text-align: center;
+    padding: 18px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.loginBtn a{
+    text-decoration: none;
+    color: #fff;
+}

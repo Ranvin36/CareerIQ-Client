@@ -4,7 +4,7 @@ import styles from "../login/login.module.css"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import InputField from "../components/InputField"
-import { IoArrowBackOutline } from "react-icons/io5";
+import StarterHeader from "../components/starterHeader"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 const Page = () => {
@@ -43,17 +43,10 @@ const Page = () => {
             </div>
             <div className={styles.rightFlex}>
                 <div className={styles.inputContent}>
-                    <div className={styles.loginHeader}>
-                        <div className={styles.arrowBg} onClick={()  => router.back()}>
-                            <div className={styles.backArrow}>  
-                                <IoArrowBackOutline size={20}/>
-                            </div>
-                        </div>
-                        <h1>Forgot Your Password?</h1>
-                    </div>
-                    <div className={styles.tagLine}>
-                        <p>Enter your email address below and we'll send you a link to reset your password.</p>
-                    </div>
+                    <StarterHeader 
+                        heading="Forgot Your Password?"
+                        subtitle="Enter your email address below and we'll send you a link to reset your password."
+                    />
                     <div className={styles.inputs}>
                         <div>
                             <InputField setInput={setEmail} label="Email Address" email={true} errorCode={error == 400} errorMessage={errorMessage}/>
