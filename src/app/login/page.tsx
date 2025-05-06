@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import styles from "./login.module.css";
-import { IoArrowBackOutline } from "react-icons/io5";
 import InputField from "../components/InputField";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
+import StarterHeader from "../components/starterHeader";
 
 const Page:React.FC = () => {
     const router = useRouter()
@@ -18,7 +18,9 @@ const Page:React.FC = () => {
             try{
                 const data = {email,password}
                 const response = await axios.post("http://localhost:5100/api/user/login",data)
-                console.log(response.data)
+                if(response.status === 200){
+                    
+                }
             }
             catch(error){
                 console.log(error)
@@ -37,17 +39,10 @@ const Page:React.FC = () => {
                 </div>
                 <div className={styles.rightFlex}>
                     <div className={styles.inputContent}>
-                        <div className={styles.loginHeader}>
-                            <div className={styles.arrowBg} onClick={()  => router.back()}>
-                                <div className={styles.backArrow}>  
-                                    <IoArrowBackOutline size={20}/>
-                                </div>
-                            </div>
-                            <h1>Welcome Back! Glad To See You</h1>
-                        </div>
-                        <div className={styles.tagLine}>
-                            <p>Ready to dive in? Log in with your credentials to access your personalized account experience.</p>
-                        </div>
+                        <StarterHeader 
+                            heading="Welcome Back! Glad To See You"
+                            subtitle="Ready to dive in? Log in with your credentials to access your personalized account experience."
+                        />
                         <div className={styles.inputs}>
                             <div>
                                 <InputField setInput={setEmail} label="Email Address" email={true}/>
